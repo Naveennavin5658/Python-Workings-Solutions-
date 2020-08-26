@@ -1,0 +1,13 @@
+def isBalanced(expression):
+    stack = []
+    left = ['{','[','(']
+    right = ['}',']',')']
+    for c in expression:
+        if c in left:
+            stack.append(c)
+        elif len(stack) == 0 or left.index(stack.pop()) != right.index(c):
+            return "NO"
+    if(len(stack)==0):
+        return "YES"
+    else:
+        return "NO"
