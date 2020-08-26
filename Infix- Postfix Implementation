@@ -1,0 +1,25 @@
+#Infix to postfix conversion:
+Operators=["+","-","*","/","%","(",")","^"]
+precedence={"+":1,"-":1,"*":2,"/":2,"^":3}
+def Convert(s):
+    o_p=""
+    stack=[]
+    for i in s:
+        if(i not in Operators):
+            o_p+=i
+        elif(i=="("):
+            stack.append(i)
+        elif(i==")"):
+            while(stack and stack[-1]!="("):
+                o_p+=stack.pop()
+            stack.pop()
+        else:
+            while stack and stack[-1]!='(' and precedence[i]<=precedence[stack[-1]]:
+                o_p+=stack.pop()
+            stack.append(i)
+    while(stack):
+        o_p+=stack.pop()
+    return o_p
+infixexpression=input("Enter the infix expression")
+postfixexpression=Convert(infixexpression)
+print("The Postfix expression is:",postfixexpression)
