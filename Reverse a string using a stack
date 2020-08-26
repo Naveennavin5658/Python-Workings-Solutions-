@@ -1,0 +1,9 @@
+#Reverse a string using a stack:
+s=input("Enter the string:")
+stack=[]
+for i in s:
+    stack.append(i)
+op=""
+for _ in range(len(stack)):
+    op+=stack.pop()
+print(op)       
