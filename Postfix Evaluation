@@ -1,0 +1,40 @@
+#Postix Evaluation:
+s=input("Enter the postfix expression:")
+stack=[]
+ans=""
+for i in s:
+    if(i=='+'):
+        op2=int(stack.pop())
+        op1=int(stack.pop())
+        op=op1+op2
+        stack.append(op)
+    elif(i=='-'):
+        op2=int(stack.pop())
+        op1=int(stack.pop())
+        op=op1-op2
+        stack.append(op)
+    elif(i=='*'):
+        op2=int(stack.pop())
+        op1=int(stack.pop())
+        op=op1*op2
+        stack.append(op)
+    elif(i=='/'):
+        op2=int(stack.pop())
+        op1=int(stack.pop())
+        op=op1/op2
+        stack.append(op)
+    elif(i=='%'):
+        op2=int(stack.pop())
+        op1=int(stack.pop())
+        op=op1%op2
+        stack.append(op)
+    elif(i=='^'):
+        op2=int(stack.pop())
+        op1=int(stack.pop())
+        op=op1^op2
+        stack.append(op)
+    else:
+        stack.append(i)
+for i in range(len(stack)):
+    ans+=str(stack[i])
+print("The evaluated answer is:",ans)
