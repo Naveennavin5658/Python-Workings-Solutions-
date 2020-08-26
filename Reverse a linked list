@@ -1,0 +1,11 @@
+#Reverse a linked list:
+def reverse(head):
+    p_node=None
+    c_node=head
+    while(c_node is not None):
+        n_node=c_node.next
+        c_node.next=p_node
+        p_node=c_node
+        c_node=n_node
+    head=p_node
+    return head
