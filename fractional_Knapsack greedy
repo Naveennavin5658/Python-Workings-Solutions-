@@ -1,1 +1,19 @@
-fractional_Knapsack greedy
+def fractional_ks(n,wt,val,cap):
+    l=[]
+    for i in range(n):
+        l.append([wt[i],val[i]])
+    l.sort()
+    profit=0
+    for i in range(n):
+        cw,cv=wt[i],val[i]
+        if(cap-cw>=0):
+            cap-=cw
+            profit+=cv
+        else:
+            profit+=cv*cap/cw
+    return profit
+n=3
+wt=[10,20,30]
+val=[60,100,120]
+cap=50
+print(fractional_ks(n,wt,val,cap))
