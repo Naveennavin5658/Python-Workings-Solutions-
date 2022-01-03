@@ -1,0 +1,18 @@
+n=int(input("Enter no of jobs:"))
+l=[]
+for i in range(n):
+    prof,dl=map(int,input().split())
+    l.append([prof,dl,i])
+l.sort(reverse=True)
+i=0
+ans=0
+j_in=[]
+in_set=[]
+for c_s in l:
+    if(c_s[1] not in in_set and c_s[1]>i):
+        in_set.append(i)
+        ans+=c_s[0]
+        j_in.append(c_s[2])
+    i+=1
+print(ans)
+print("Included jobs are: ",j_in)
